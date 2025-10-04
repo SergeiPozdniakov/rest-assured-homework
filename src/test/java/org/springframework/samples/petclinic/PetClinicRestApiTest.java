@@ -10,11 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
 
 // Добавляем @TestPropertySource для отключения безопасности
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -54,7 +50,7 @@ class PetClinicRestApiTest {
             }
             """.formatted(adminUsername, adminPassword, adminRole);
 
-        // УБРАТЬ извлечение id
+
         given()
             .contentType(ContentType.JSON)
             .body(userJson)
@@ -63,7 +59,7 @@ class PetClinicRestApiTest {
             .then()
             .statusCode(HttpStatus.CREATED.value()); // Только проверяем статус 201
 
-        // Не используем userId, просто логируем username
+
         System.out.println("Создан пользователь с username: " + adminUsername);
 
         // 2. Добавить 2 владельцев питомцев
