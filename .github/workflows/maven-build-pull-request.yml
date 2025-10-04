@@ -16,7 +16,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven
+        
     - name: Build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
