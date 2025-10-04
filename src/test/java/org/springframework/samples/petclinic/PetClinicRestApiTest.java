@@ -14,8 +14,8 @@ import static io.restassured.RestAssured.given;
 
 // Добавляем @TestPropertySource для отключения безопасности
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles({"h2", "jdbc"})
-@TestPropertySource(properties = {"petclinic.security.enable=false"}) // <-- Отключаем безопасность
+@ActiveProfiles({"h2", "spring-data-jpa"})
+@TestPropertySource(properties = {"petclinic.security.enable=false"})
 class PetClinicRestApiTest {
 
     @LocalServerPort
